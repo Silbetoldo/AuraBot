@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Descubra os significados simbólicos do seu nome e da sua data de nascimento com o AuraBot, o agente de Numerologia Pitagórica da CriativaMent IA.">
+  <title>AuraBot | Mapa da Essência</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #f8f5ff;
+      --muted: #c8c2d9;
+      --violet: #9c6cff;
+      --violet-light: #cbb2ff;
+      --gold: #f1c66d;
+      --navy: #09081a;
+      --navy-soft: #11102b;
+      --panel: rgba(23, 20, 52, .72);
+      --line: rgba(203, 178, 255, .18);
+      --shadow: 0 24px 70px rgba(0, 0, 0, .32);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 75% 10%, rgba(105, 64, 207, .28), transparent 28rem),
+        radial-gradient(circle at 10% 45%, rgba(29, 76, 151, .18), transparent 32rem),
+        var(--navy);
+      font-family: Inter, system-ui, sans-serif;
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+    .container { width: min(1120px, calc(100% - 40px)); margin-inline: auto; }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--gold);
+      font-size: .76rem;
+      font-weight: 700;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    h1, h2, h3 { font-family: "Cormorant Garamond", Georgia, serif; line-height: 1.06; }
+    h1 { max-width: 720px; margin: 0; font-size: clamp(3.2rem, 7vw, 6.6rem); letter-spacing: -.04em; }
+    h2 { margin: 0 0 18px; font-size: clamp(2.35rem, 5vw, 4rem); letter-spacing: -.025em; }
+    h3 { margin: 0 0 9px; font-size: 1.65rem; }
+    .accent { color: var(--violet-light); }
+
+    .topbar {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-block: 24px;
+    }
+    .brand { display: flex; gap: 12px; align-items: center; text-decoration: none; }
+    .brand-mark {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid rgba(241, 198, 109, .45);
+      border-radius: 50%;
+      color: var(--gold);
+      background: rgba(255, 255, 255, .04);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 1.55rem;
+      box-shadow: 0 0 25px rgba(241, 198, 109, .12);
+    }
+    .brand strong { display: block; font-size: .94rem; letter-spacing: .02em; }
+    .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
+
+    .hero {
+      position: relative;
+      display: grid;
+      min-height: 780px;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 48px;
+      align-items: center;
+      padding: 62px 0 100px;
+      overflow: hidden;
+    }
+    .hero-copy { position: relative; z-index: 2; }
+    .hero-copy > p:not(.eyebrow) { max-width: 650px; margin: 28px 0; color: var(--muted); font-size: 1.12rem; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; }
+    .buy-button, .secondary-button {
+      display: inline-flex !important;
+      min-height: 56px;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 25px !important;
+      border: 0 !important;
+      border-radius: 999px !important;
+      text-decoration: none !important;
+      font-family: Inter, sans-serif !important;
+      font-size: .94rem !important;
+      font-weight: 700 !important;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+      cursor: pointer;
+    }
+    .buy-button {
+      color: #130d21 !important;
+      background: linear-gradient(135deg, var(--gold), #fff0b4) !important;
+      box-shadow: 0 12px 32px rgba(241, 198, 109, .2) !important;
+    }
+    .buy-button:hover { transform: translateY(-2px); box-shadow: 0 16px 38px rgba(241, 198, 109, .3) !important; }
+    .secondary-button { border: 1px solid var(--line) !important; color: var(--ink); background: rgba(255, 255, 255, .04); }
+    .secondary-button:hover { background: rgba(255, 255, 255, .08); }
+    .microcopy { margin-top: 13px; color: #aaa3be; font-size: .78rem; }
+
+    .orbit-stage { position: relative; display: grid; min-height: 520px; place-items: center; }
+    .orbit, .orbit::before, .orbit::after { position: absolute; border: 1px solid rgba(203, 178, 255, .25); border-radius: 50%; }
+    .orbit { width: 470px; height: 470px; animation: spin 30s linear infinite; }
+    .orbit::before { content: ""; inset: 32px; border-color: rgba(241, 198, 109, .2); }
+    .orbit::after { content: "✦"; top: 12px; left: 50%; width: 20px; height: 20px; border: 0; color: var(--gold); line-height: 20px; text-align: center; transform: translateX(-50%); }
+    .crystal {
+      position: relative;
+      display: grid;
+      width: 290px;
+      height: 290px;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: 50%;
+      background:
+        radial-gradient(circle at 35% 25%, rgba(255,255,255,.38), transparent 12%),
+        radial-gradient(circle at 50% 55%, #8b59ef 0, #3a257f 45%, #151237 72%);
+      box-shadow: inset -28px -28px 55px rgba(0,0,0,.35), 0 0 90px rgba(121,76,220,.44), 0 25px 70px rgba(0,0,0,.5);
+    }
+    .crystal::before { content: ""; position: absolute; inset: 18px; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; }
+    .crystal-number { color: white; font-family: "Cormorant Garamond", serif; font-size: 9rem; font-weight: 700; line-height: 1; text-shadow: 0 0 30px rgba(255,255,255,.4); }
+    .symbol { position: absolute; color: var(--gold); font-family: "Cormorant Garamond", serif; font-size: 1.45rem; }
+    .s1 { top: 24px; left: 95px; } .s2 { right: 22px; top: 138px; } .s3 { bottom: 42px; right: 102px; }
+    .s4 { bottom: 50px; left: 80px; } .s5 { left: 24px; top: 130px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .trust-strip { border-block: 1px solid var(--line); background: rgba(255,255,255,.025); }
+    .trust-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+    .trust-item { padding: 24px; text-align: center; color: var(--muted); font-size: .88rem; }
+    .trust-item + .trust-item { border-left: 1px solid var(--line); }
+    .trust-item strong { display: block; margin-bottom: 3px; color: var(--ink); }
+
+    section { padding: 110px 0; }
+    .section-heading { max-width: 720px; margin-bottom: 48px; }
+    .section-heading p { color: var(--muted); }
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card {
+      min-height: 215px;
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: linear-gradient(145deg, rgba(255,255,255,.055), rgba(255,255,255,.018));
+      box-shadow: var(--shadow);
+    }
+    .card-number { display: block; margin-bottom: 25px; color: var(--gold); font-family: "Cormorant Garamond", serif; font-size: 1.15rem; }
+    .card p { margin: 0; color: var(--muted); font-size: .91rem; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 34px; counter-reset: step; }
+    .step { position: relative; padding-left: 66px; }
+    .step::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      position: absolute;
+      top: 0;
+      left: 0;
+      color: var(--violet-light);
+      font-family: "Cormorant Garamond", serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+    }
+    .step p { color: var(--muted); font-size: .9rem; }
+
+    .offer {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr .8fr;
+      gap: 50px;
+      align-items: center;
+      padding: 55px;
+      border: 1px solid rgba(241,198,109,.28);
+      border-radius: 30px;
+      background: radial-gradient(circle at 85% 25%, rgba(139,89,239,.22), transparent 45%), var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .offer-list { display: grid; gap: 12px; margin: 25px 0 0; padding: 0; list-style: none; }
+    .offer-list li::before { content: "✦"; margin-right: 11px; color: var(--gold); }
+    .price-box { padding: 36px; border: 1px solid var(--line); border-radius: 24px; background: rgba(6,6,22,.46); text-align: center; }
+    .price-label { color: var(--muted); font-size: .82rem; text-transform: uppercase; letter-spacing: .12em; }
+    .price { display: block; margin: 5px 0 19px; font-family: "Cormorant Garamond", serif; font-size: 4.8rem; font-weight: 700; line-height: 1; }
+    .price sup { font-size: 1.6rem; vertical-align: 1.6rem; }
+    .price-box .buy-button { width: 100%; }
+
+    details { border-bottom: 1px solid var(--line); }
+    summary { padding: 22px 0; font-weight: 600; cursor: pointer; list-style: none; }
+    summary::after { content: "+"; float: right; color: var(--gold); font-size: 1.3rem; }
+    details[open] summary::after { content: "−"; }
+    details p { max-width: 820px; margin: 0 0 22px; color: var(--muted); }
+
+    footer { padding: 45px 0; border-top: 1px solid var(--line); color: #9790a9; font-size: .78rem; }
+    .footer-row { display: flex; justify-content: space-between; gap: 28px; }
+    .footer-row p { max-width: 780px; margin: 0; }
+
+    @media (max-width: 860px) {
+      .hero { min-height: auto; grid-template-columns: 1fr; padding-top: 45px; text-align: center; }
+      .hero-copy > p:not(.eyebrow) { margin-inline: auto; }
+      .hero-actions { justify-content: center; }
+      .orbit-stage { min-height: 440px; order: -1; }
+      .orbit { width: 390px; height: 390px; }
+      .crystal { width: 245px; height: 245px; }
+      .crystal-number { font-size: 7rem; }
+      .cards, .steps { grid-template-columns: 1fr 1fr; }
+      .offer { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 580px) {
+      .container { width: min(100% - 26px, 1120px); }
+      .topbar { padding-block: 17px; }
+      .topbar > .secondary-button { display: none !important; }
+      .hero { padding: 20px 0 70px; }
+      h1 { font-size: 3.2rem; }
+      .orbit-stage { min-height: 330px; }
+      .orbit { width: 300px; height: 300px; }
+      .crystal { width: 190px; height: 190px; }
+      .crystal-number { font-size: 5.7rem; }
+      .symbol { display: none; }
+      .trust-grid, .cards, .steps { grid-template-columns: 1fr; }
+      .trust-item + .trust-item { border-top: 1px solid var(--line); border-left: 0; }
+      section { padding: 78px 0; }
+      .offer { padding: 30px 20px; }
+      .price-box { padding: 28px 17px; }
+      .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .orbit { animation: none; } }
+  </style>
+</head>
+<body>
+  <header class="container topbar">
+    <a class="brand" href="#inicio" aria-label="AuraBot, início">
+      <span class="brand-mark">A</span>
+      <span><strong>AuraBot</strong><small>CriativaMent IA</small></span>
+    </a>
+    <a class="secondary-button" href="#como-funciona">Como funciona</a>
+  </header>
+
+  <main>
+    <section class="container hero" id="inicio">
+      <div class="hero-copy">
+        <p class="eyebrow">Numerologia Pitagórica • Leitura personalizada</p>
+        <h1>Os números contam uma história. <span class="accent">Comece pela sua.</span></h1>
+        <p>Descubra os significados simbólicos do seu nome e da sua data de nascimento com uma leitura interativa sobre personalidade, talentos, desafios e ciclos de vida.</p>
+        <div class="hero-actions">
+          <a onclick="return false;" href="https://pay.hotmart.com/H106657467L?checkoutMode=2" class="hotmart-fb hotmart__button-checkout buy-button">Quero conhecer meu mapa</a>
+          <a class="secondary-button" href="#descobertas">Ver o que vou descobrir</a>
+        </div>
+        <p class="microcopy">Acesso liberado após a confirmação do pagamento pela Hotmart.</p>
+      </div>
+      <div class="orbit-stage" aria-label="Esfera numerológica decorativa">
+        <div class="orbit">
+          <span class="symbol s1">1</span><span class="symbol s2">3</span><span class="symbol s3">6</span><span class="symbol s4">9</span><span class="symbol s5">11</span>
+        </div>
+        <div class="crystal"><span class="crystal-number">7</span></div>
+      </div>
+    </section>
+
+    <div class="trust-strip">
+      <div class="container trust-grid">
+        <div class="trust-item"><strong>Experiência personalizada</strong>A partir dos seus dados de nascimento</div>
+        <div class="trust-item"><strong>Cálculos transparentes</strong>Você acompanha o passo a passo</div>
+        <div class="trust-item"><strong>Acesso digital</strong>Simples, interativo e no seu ritmo</div>
+      </div>
+    </div>
+
+    <section class="container" id="descobertas">
+      <div class="section-heading">
+        <p class="eyebrow">Seu Mapa da Essência</p>
+        <h2>Uma leitura para observar quem você é por <span class="accent">novos ângulos</span></h2>
+        <p>O AuraBot organiza os principais elementos da Numerologia Pitagórica em uma experiência clara, guiada e personalizada.</p>
+      </div>
+      <div class="cards">
+        <article class="card"><span class="card-number">01</span><h3>Números principais</h3><p>Caminho de Vida, Expressão, Alma, Personalidade e Maturidade.</p></article>
+        <article class="card"><span class="card-number">02</span><h3>Talentos e desafios</h3><p>Potenciais, aprendizados e padrões simbólicos presentes no mapa.</p></article>
+        <article class="card"><span class="card-number">03</span><h3>Ciclos de vida</h3><p>Pináculos, desafios, Ano Pessoal e tendências simbólicas atuais.</p></article>
+        <article class="card"><span class="card-number">04</span><h3>Vida profissional</h3><p>Talentos naturais, inclinações profissionais e relação simbólica com o dinheiro.</p></article>
+        <article class="card"><span class="card-number">05</span><h3>Relacionamentos</h3><p>Padrões afetivos, necessidades emocionais e desafios relacionais gerais.</p></article>
+        <article class="card"><span class="card-number">06</span><h3>Integração final</h3><p>Uma síntese das energias predominantes, potenciais e pontos de atenção.</p></article>
+      </div>
+    </section>
+
+    <section class="container" id="como-funciona">
+      <div class="section-heading">
+        <p class="eyebrow">Como funciona</p>
+        <h2>Três passos para iniciar sua leitura</h2>
+      </div>
+      <div class="steps">
+        <article class="step"><h3>Garanta seu acesso</h3><p>Finalize a compra com segurança no ambiente de pagamento da Hotmart.</p></article>
+        <article class="step"><h3>Informe seus dados</h3><p>Digite seu nome completo de nascimento e sua data de nascimento.</p></article>
+        <article class="step"><h3>Explore seu mapa</h3><p>Converse com o AuraBot, acompanhe os cálculos e leia suas interpretações.</p></article>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="offer">
+        <div>
+          <p class="eyebrow">Condição especial de lançamento</p>
+          <h2>Conheça o seu Mapa da Essência</h2>
+          <ul class="offer-list">
+            <li>Leitura baseada na Numerologia Pitagórica</li>
+            <li>Interpretação personalizada e interativa</li>
+            <li>Cálculos apresentados passo a passo</li>
+            <li>Acesso pela área de membros da Hotmart</li>
+          </ul>
+        </div>
+        <div class="price-box">
+          <span class="price-label">Pagamento único</span>
+          <span class="price"><sup>R$</sup>19,90</span>
+          <a onclick="return false;" href="https://pay.hotmart.com/H106657467L?checkoutMode=2" class="hotmart-fb hotmart__button-checkout buy-button">Quero acessar o AuraBot</a>
+          <p class="microcopy">Compra processada pela Hotmart.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="container">
+      <div class="section-heading"><p class="eyebrow">Dúvidas frequentes</p><h2>Antes de começar</h2></div>
+      <details><summary>Quais informações preciso fornecer?</summary><p>Somente seu nome completo de nascimento, sem abreviações, e sua data de nascimento.</p></details>
+      <details><summary>Preciso entender de numerologia?</summary><p>Não. O AuraBot conduz a experiência, apresenta os cálculos e explica cada elemento em linguagem acessível.</p></details>
+      <details><summary>A leitura prevê o futuro?</summary><p>Não. A Numerologia Pitagórica é apresentada como uma ferramenta simbólica de autoconhecimento e reflexão, sem previsões determinísticas.</p></details>
+      <details><summary>Como receberei o acesso?</summary><p>Após a confirmação do pagamento, a Hotmart enviará as orientações de acesso para o e-mail informado na compra.</p></details>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-row">
+      <p><strong>AuraBot • CriativaMent IA</strong><br>A Numerologia Pitagórica é utilizada como ferramenta simbólica de autoconhecimento e reflexão. A leitura não determina o futuro e não substitui orientações médicas, psicológicas, jurídicas ou financeiras.</p>
+      <span>© 2026 CriativaMent IA</span>
+    </div>
+  </footer>
+
+  <script>
+    function importHotmart() {
+      var imported = document.createElement('script');
+      imported.src = 'https://static.hotmart.com/checkout/widget.min.js';
+      document.head.appendChild(imported);
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css';
+      document.head.appendChild(link);
+    }
+    importHotmart();
+  </script>
+</body>
+</html>
