@@ -19,6 +19,8 @@
   <meta name="twitter:title" content="AuraBot | Mapa da Essência">
   <meta name="twitter:description" content="Conheça seu Mapa da Essência com uma leitura interativa de Numerologia Pitagórica.">
   <meta name="twitter:image" content="https://aurabot.criativament.com/assets/AuraBot.png">
+  <link rel="icon" type="image/png" href="assets/icone-bola-cristal-violeta.png">
+  <link rel="apple-touch-icon" href="assets/icone-bola-cristal-violeta.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -75,17 +77,13 @@
     }
     .brand { display: flex; gap: 12px; align-items: center; text-decoration: none; }
     .brand-mark {
-      display: grid;
       width: 42px;
       height: 42px;
-      place-items: center;
       border: 1px solid rgba(241, 198, 109, .45);
       border-radius: 50%;
-      color: var(--gold);
       background: rgba(255, 255, 255, .04);
-      font-family: "Cormorant Garamond", serif;
-      font-size: 1.55rem;
       box-shadow: 0 0 25px rgba(241, 198, 109, .12);
+      object-fit: cover;
     }
     .brand strong { display: block; font-size: .94rem; letter-spacing: .02em; }
     .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
@@ -258,7 +256,7 @@
 <body>
   <header class="container topbar">
     <a class="brand" href="#inicio" aria-label="AuraBot, início">
-      <span class="brand-mark">A</span>
+      <img class="brand-mark" src="assets/icone-bola-cristal-violeta.png" alt="" width="42" height="42">
       <span><strong>AuraBot</strong><small>CriativaMent IA</small></span>
     </a>
     <a class="secondary-button" href="#como-funciona">Como funciona</a>
