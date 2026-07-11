@@ -19,8 +19,9 @@
   <meta name="twitter:title" content="AuraBot | Mapa da Essência">
   <meta name="twitter:description" content="Conheça seu Mapa da Essência com uma leitura interativa de Numerologia Pitagórica.">
   <meta name="twitter:image" content="https://aurabot.criativament.com/assets/AuraBot.png">
-  <link rel="icon" type="image/png" href="assets/icone-bola-cristal-violeta.png">
-  <link rel="apple-touch-icon" href="assets/icone-bola-cristal-violeta.png">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2309081a'/%3E%3Cdefs%3E%3CradialGradient id='g' cx='.38' cy='.3'%3E%3Cstop stop-color='%23eadcff'/%3E%3Cstop offset='.32' stop-color='%23b67cff'/%3E%3Cstop offset='1' stop-color='%23501bb8'/%3E%3C/radialGradient%3E%3C/defs%3E%3Ccircle cx='32' cy='27' r='19' fill='url(%23g)' stroke='%23d7b8ff' stroke-width='2'/%3E%3Cpath d='M20 44h24l5 10H15z' fill='%23d5a94f' stroke='%23ffe09a' stroke-width='2'/%3E%3C/svg%3E">
+  <link rel="alternate icon" type="image/png" href="/assets/icone-bola-cristal-violeta.png?v=2">
+  <link rel="apple-touch-icon" href="/assets/icone-bola-cristal-violeta.png?v=2">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -77,13 +78,34 @@
     }
     .brand { display: flex; gap: 12px; align-items: center; text-decoration: none; }
     .brand-mark {
+      position: relative;
+      display: block;
       width: 42px;
       height: 42px;
       border: 1px solid rgba(241, 198, 109, .45);
       border-radius: 50%;
       background: rgba(255, 255, 255, .04);
       box-shadow: 0 0 25px rgba(241, 198, 109, .12);
-      object-fit: cover;
+      background: radial-gradient(circle at 38% 30%, #eadcff 0 8%, #b67cff 25%, #7131d4 58%, #30106f 74%);
+    }
+    .brand-mark::before {
+      content: "";
+      position: absolute;
+      inset: 5px 6px 10px;
+      border: 1px solid rgba(234, 220, 255, .8);
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(182, 124, 255, .8);
+    }
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      right: 8px;
+      bottom: 4px;
+      left: 8px;
+      height: 8px;
+      border: 1px solid #ffe09a;
+      border-radius: 3px 3px 7px 7px;
+      background: linear-gradient(#f1c66d, #8f641d);
     }
     .brand strong { display: block; font-size: .94rem; letter-spacing: .02em; }
     .brand small { display: block; color: var(--muted); font-size: .67rem; letter-spacing: .12em; text-transform: uppercase; }
@@ -256,7 +278,7 @@
 <body>
   <header class="container topbar">
     <a class="brand" href="#inicio" aria-label="AuraBot, início">
-      <img class="brand-mark" src="assets/icone-bola-cristal-violeta.png" alt="" width="42" height="42">
+      <span class="brand-mark" aria-hidden="true"></span>
       <span><strong>AuraBot</strong><small>CriativaMent IA</small></span>
     </a>
     <a class="secondary-button" href="#como-funciona">Como funciona</a>
